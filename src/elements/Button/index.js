@@ -37,7 +37,7 @@ export default function Button(props) {
 					href={props.href}
 					className={className.join(" ")}
 					style={props.style}
-					target={props.target === "_blank" ? "_blank" : undefined}
+					target={props.target === "_blank" ? "noopener noreferrer" : undefined}
 					rel={props.target === "_blank" ? "noopener noreferrer" : undefined}
 				>
 					{props.children}
@@ -75,6 +75,7 @@ Button.propTypes = {
 	href: propTypes.string,
 	className: propTypes.string,
 	isDisabled: propTypes.bool,
+	isPrimary: propTypes.bool,
 	isLoading: propTypes.bool,
 	isSmall: propTypes.bool,
 	isLarge: propTypes.bool,

@@ -3,7 +3,8 @@ import Button from "elements/Button";
 import BrandIcon from "parts/IconText";
 export default function Header(props) {
 	const getNavLinkClass = (path) => {
-		return props.location.pathname == path ? " active" : "";
+		// console.log(props);
+		return props.location.pathname === path ? " active" : "";
 	};
 
 	return (
