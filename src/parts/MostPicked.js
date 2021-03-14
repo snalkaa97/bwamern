@@ -1,31 +1,46 @@
-import React from "react";
-
-export default function MostPicked() {
+import Button from "elements/Button";
+export default function MostPicked(props) {
+	// console.log(props.data);
 	return (
-		<section className="container">
+		<section
+			className="container"
+			ref={props.refMostPicked}
+			style={{ height: 2000 }}
+		>
 			<h4 className="mb-3">Most Picked</h4>
-			<div className="row">
-				<div className="col-4">
-					<div className="card h-100">card 1</div>
-				</div>
-				<div className="col-8">
-					<div className="row mb-3">
-						<div className="col-6">
-							<div className="card">card 2</div>
+			<div className="container-grid">
+				{props.data.map((item, index) => {
+					return (
+						<div
+							key={`mostpicked${index}`}
+							className={`item column-4${index === 0 ? " row-2" : " row-1"}`}
+						>
+							<div className="card card-feature">
+								<div className="tag">${item.price}</div>
+								<span className="font-weight-light">per {item.unit}</span>
+							</div>
+							<figure className="img-wrapper">
+								<img
+									src={item.imageUrl} //memang ga ada gambar
+									alt={item.name}
+									className="img-cover"
+								/>
+							</figure>
+							<div className="meta-wrapper">
+								<Button
+									type="link"
+									className="streched-link d-block text-white"
+									href={`/properties/${item._id}`}
+								>
+									<h5>{item.name}</h5>
+								</Button>
+								<span>
+									{item.city}, {item.country}
+								</span>
+							</div>
 						</div>
-						<div className="col-6">
-							<div className="card">card 3</div>
-						</div>
-					</div>
-					<div className="row">
-						<div className="col-6">
-							<div className="card">card 4</div>
-						</div>
-						<div className="col-6">
-							<div className="card">card 5</div>
-						</div>
-					</div>
-				</div>
+					);
+				})}
 			</div>
 		</section>
 	);
