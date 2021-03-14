@@ -4,6 +4,7 @@ import ImageHeroFrame from "assets/images/img-hero-frame.jpg";
 // import IconCalendar from "assets/images/icons/icon-calendar.svg";
 import IconStar from "assets/images/icons/star.svg";
 import Button from "elements/Button";
+import FormatNumber from "util/formatNumber";
 
 export default function Hero(props) {
 	function showMostPicked() {
@@ -12,6 +13,7 @@ export default function Hero(props) {
 			behavior: "smooth",
 		});
 	}
+
 	return (
 		<section className="container pt-4">
 			<div className="row align-items-center">
@@ -43,7 +45,7 @@ export default function Hero(props) {
 								alt={`${props.data.travelers} Travelers`}
 							/>
 							<h6 className="mt-3">
-								{props.data.travelers}{" "}
+								{FormatNumber(props.data.travelers)}{" "}
 								<span className="text-gray-500 font-light">Travelers</span>
 							</h6>
 						</div>
@@ -55,7 +57,7 @@ export default function Hero(props) {
 								alt={`${props.data.treasures} Treasures`}
 							/>
 							<h6 className="mt-3">
-								{props.data.treasures}{" "}
+								{FormatNumber(props.data.treasures)}{" "}
 								<span className="text-gray-500 font-light">Treasures</span>
 							</h6>
 						</div>
@@ -67,7 +69,7 @@ export default function Hero(props) {
 								alt={`${props.data.cities} Cities`}
 							/>
 							<h6 className="mt-3">
-								{props.data.cities}{" "}
+								{FormatNumber(props.data.cities)}{" "}
 								<span className="text-gray-500 font-light">Cities</span>
 							</h6>
 						</div>
