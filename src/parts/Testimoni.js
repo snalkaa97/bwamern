@@ -14,16 +14,16 @@ export default function Testimoni({ data }) {
 							style={{ margin: `30px 0 0 30px` }}
 						>
 							<img
-								src={data.imageUrl}
-								alt="Testimoni"
+								src={`${data.imageUrl}`}
+								alt="Testimonial"
 								className="position-absolute"
 								style={{ zIndex: 1 }}
 							/>
 							<img
 								src={TestimonyAccent}
-								alt="Testimoni frame"
+								alt="Testimonial frame"
 								className="position-absolute"
-								style={{ margin: `-30px 0 0 -30px`, zIndex: 1 }}
+								style={{ margin: `-30px 0 0 -30px` }}
 							/>
 						</div>
 					</div>

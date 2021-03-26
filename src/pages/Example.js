@@ -5,7 +5,7 @@ import Breadcrumb from "elements/Breadcrumb";
 export default class Example extends Component {
 	render() {
 		const breadcrumbList = [
-			{ pageTitle: "Home", pageHref: "/stories" },
+			{ pageTitle: "Home", pageHref: "/" },
 			{ pageTitle: "House Details", pageHref: "/agents" },
 		];
 		return (
