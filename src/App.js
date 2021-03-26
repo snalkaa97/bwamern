@@ -9,6 +9,7 @@ function App() {
 			<Router>
 				<Route path="/" component={LandingPage}></Route>
 				<Route path="/example" component={Example}></Route>
+				{/* <Route path="/stories" component={Example}></Route> */}
 			</Router>
 		</div>
 	);

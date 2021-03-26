@@ -13,9 +13,11 @@ export default function Number(props) {
 		suffix,
 		isSuffixPlural,
 	} = props;
+
+	// console.log(props);
 	const [InputValue, setInputValue] = useState(`${prefix}${value}${suffix}`);
 
-	const onChange = (e) => {
+	const onChange2 = (e) => {
 		let value = String(e.target.value);
 		if (prefix) value = value.replace(prefix);
 		if (suffix) value = value.replace(suffix);
@@ -38,22 +40,24 @@ export default function Number(props) {
 	};
 
 	const minus = () => {
-		value > min &&
-			onChange({
+		if (value > min) {
+			onChange2({
 				target: {
 					name: name,
 					value: +value - 1,
 				},
 			});
+		}
 	};
 	const plus = () => {
-		value < max &&
-			onChange({
+		if (value < max) {
+			onChange2({
 				target: {
 					name: name,
 					value: +value + 1,
 				},
 			});
+		}
 	};
 
 	return (
@@ -72,7 +76,7 @@ export default function Number(props) {
 					className="form-control"
 					placeholder={placeholder ? placeholder : "0"}
 					value={String(InputValue)}
-					onChange={onChange}
+					onChange={onChange2}
 				/>
 				<div className="input-group-prepend">
 					<span className="input-group-text plus" onClick={plus}>
