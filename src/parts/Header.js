@@ -36,6 +36,11 @@ export default function Header(props) {
 										Agents
 									</Button>
 								</li>
+								<li className={`nav-item${getNavLinkClass("/example")}`}>
+									<Button className="nav-link" type="link" href="/example">
+										Example
+									</Button>
+								</li>
 							</ul>
 						</div>
 					</nav>

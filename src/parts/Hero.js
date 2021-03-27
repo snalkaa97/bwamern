@@ -3,7 +3,7 @@ import Fade from "react-reveal";
 import ImageHero from "assets/images/img-hero.jpg";
 import ImageHeroFrame from "assets/images/img-hero-frame.jpg";
 // import IconCalendar from "assets/images/icons/icon-calendar.svg";
-import IconStar from "assets/images/icons/star.svg";
+// import IconStar from "assets/images/icons/star.svg";
 import Button from "elements/Button";
 import FormatNumber from "util/formatNumber";
 
