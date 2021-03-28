@@ -26,8 +26,8 @@ export default function Text(props) {
 			},
 		};
 		if (type === "email") {
-			if (!pattern.text(e.target.value)) setHasError(errorResponse);
-			else setHasError("");
+			if (!pattern.test(e.target.value)) SetHasError(errorResponse);
+			else SetHasError("");
 		}
 		if (type === "tel") {
 			if (e.target.validity.valid) props.onChange(target);
@@ -59,7 +59,7 @@ export default function Text(props) {
 					</div>
 				)}
 			</div>
-			{HasError && <span className="error-helper">{HasError}</span>}
+			{HasError && <span className="error-helper text-danger">{HasError}</span>}
 		</div>
 	);
 }
