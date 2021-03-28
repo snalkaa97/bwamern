@@ -23,6 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 #scss
-/src/assets/scss/mixins/*
-/src/assets/scss/utilities/*
-/src/assets/scss/vendor/*
+# /src/assets/scss/mixins/*
+# /src/assets/scss/utilities/*
+# /src/assets/scss/vendor/*
