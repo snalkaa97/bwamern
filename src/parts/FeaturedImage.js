@@ -1,28 +1,25 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
 
-export default function FeaturedImage({ data }) {
+export default function FeaturedImage(props) {
 	return (
 		<section className="container">
 			<div className="container-grid sm">
-				{data.map((item, index) => {
-					return (
-						<div
-							key={`FeatureImgae-${index}`}
-							className={`item ${index > 0 ? "column-5" : "column-7"} ${
-								index > 0 ? " row-1" : " row-2"
-							}`}
-						>
-							<Fade bottom delay={300 * index}>
-								<div className="card h-100">
-									<figure className="image-wrapper">
-										<img src={item.url} alt={item._id} className="img-cover" />
-									</figure>
-								</div>
-							</Fade>
-						</div>
-					);
-				})}
+				<div className={`item column-12 row-1`}>
+					<center>
+						<Fade bottom delay={300 * 2}>
+							<div className="card">
+								<figure className="image-wrapper">
+									<img
+										src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.data.id}.png`}
+										alt={""}
+										width="500px"
+									/>
+								</figure>
+							</div>
+						</Fade>
+					</center>
+				</div>
 			</div>
 		</section>
 	);
