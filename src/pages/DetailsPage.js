@@ -1,45 +1,64 @@
 import React, { Component } from "react";
 import Header from "parts/Header";
 import PageDetailTitle from "parts/PageDetailTitle";
-import FeaturedImage from "parts/FeaturedImage";
-import PageDetailDescription from "parts/PageDetailDescription";
 import BookingForm from "parts/BookingForm";
-import Categories from "parts/Categories";
-import Testimoni from "parts/Testimoni";
 import Footer from "parts/Footer";
-import ItemDetails from "json/itemDetails.json";
-
 export default class DetailsPage extends Component {
+	constructor() {
+		super();
+		this.state = {
+			pokemon: [],
+			description: "",
+			types: "",
+		};
+	}
 	componentDidMount() {
 		window.title = "Details Page";
 		window.scrollTo(0, 0);
+		const getPokemonItem = `https://pokeapi.co/api/v2/pokemon/${this.props.match.params.id}`;
+		fetch(getPokemonItem, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
+			.then((response) => response.json())
+			.then((json) => {
+				this.setState({
+					pokemon: json,
+					types: json.types.map((item) => item.type.name).join(" "),
+				});
+			});
+		const description = `https://pokeapi.co/api/v2/pokemon-species/${this.props.match.params.id}/`;
+		fetch(description, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
+			.then((response) => response.json())
+			.then((json) => {
+				this.setState({
+					description: json.flavor_text_entries[0],
+				});
+			});
 	}
 	render() {
-		// console.log(ItemDetails);
 		const breadcrumb = [
 			{ pageTitle: "Home", pageHref: "" },
-			{ pageTitle: "House Details", pageHref: "" },
+			{ pageTitle: "Pokemon Detail", pageHref: "" },
 		];
+		console.log(this.state);
 		return (
 			<>
 				<Header {...this.props}></Header>
 				<PageDetailTitle
 					breadcrumb={breadcrumb}
-					data={ItemDetails}
+					data={this.state.pokemon}
 				></PageDetailTitle>
-				<FeaturedImage data={ItemDetails.imageUrls} />
-				<section className="container">
-					<div className="row">
-						<div className="col-7 pr-5">
-							<PageDetailDescription data={ItemDetails} />
-						</div>
-						<div className="col-5">
-							<BookingForm itemDetails={ItemDetails} />
-						</div>
-					</div>
-				</section>
-				<Categories data={ItemDetails.categories} />
-				<Testimoni data={ItemDetails.testimonial} />
+				<div class="d-flex justify-content-center">
+					<BookingForm data={this.state} />
+				</div>
 				<Footer />
 			</>
 		);
